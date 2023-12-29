@@ -1,0 +1,8 @@
+.folder_name, .folder_icon {
+    text-align: center;
+}
+
+.folder_name {
+    word-wrap: break-word;
+    margin: 5px 15%;
+}

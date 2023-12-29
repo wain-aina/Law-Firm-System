@@ -1,0 +1,109 @@
+.caseAdd {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+    color: orange;
+    text-decoration: none;
+    font-size: 2em;
+    display: inline-block;
+    font-family: Montserrat;
+    text-transform: uppercase;
+    padding: 0.5em 2em;
+    border: 2px solid orange;
+    transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+    background: transparent;
+}
+.addCase::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: orange;
+    transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+    z-index: -1;
+}
+.addCase::after {
+    content: "";
+    display: inline-block;
+    background-image: url("https://cdn-icons-png.flaticon.com/128/109/109617.png");
+    position: absolute;
+    top: 0;
+    left: calc(100% - 3em);
+    right: 3em;
+    bottom: 0;
+    background-size: 1.5em;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.addCase:hover {
+    padding: 0.5em 3.5em 0.5em 0.5em;
+}
+.addCase:hover::before {
+    left: calc(100% - 3em);
+    right: 0;
+    transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.addCase:hover::after {
+    right: 0;
+    transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+
+
+.add_member {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 14px 24px;
+    border: none;
+    transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+    background: linear-gradient(to right, rgb(230, 30, 77) 0%, rgb(227, 28, 95) 50%, rgb(215, 4, 102) 100%);
+    color: #fff;
+}
+
+.plus_one {
+    padding-top: 7%;
+    left:10%;
+}
+
+.add_report {
+    display:flex;
+    transform: translateY(150%);
+    justify-content: center;
+    align-items: center;
+}
+
+.reportBio {
+    padding: 1% 5%;
+}
+
+.add_project {
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    margin: 2% 3%;
+}
+
+@media screen and (max-width: 768px){
+    .add_report {
+        transform: translateY(50%);
+    }
+}
+
+.btn-status {
+    text-transform: capitalize;
+}
+
+.log_out {
+    border: none;
+    background: transparent;
+}
+

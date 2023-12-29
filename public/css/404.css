@@ -1,0 +1,71 @@
+
+.full_container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.inner_container {
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.main_bt {
+    min-width: 125px;
+    height: auto;
+    float: left;
+    background: #1ed085;
+    text-align: center;
+    color: #fff;
+    padding: 10px 25px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    transition: ease all 0.5s;
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.error_page h2 {
+    font-size: 150px;
+    line-height: 150px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.error_page h3 {
+    color: #444d5b;
+    text-align: center;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 50px;
+    margin-bottom: 25px;
+    text-shadow: none;
+    margin-top: 10px;
+}
+
+.error_page h3+p {
+    font-size: 16px;
+    margin-top: -10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.error_404 {
+    background: url('/img/pattern_h.png');
+    background-size: cover;
+    background-color: #fff;
+}
+
+.img-responsive, .center {
+    display: flex;
+    justify-content: center;
+}
+
+.return {
+    border: none;
+    background: none;
+    color: white;
+}

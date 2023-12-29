@@ -1,0 +1,28 @@
+.invoice-btns {
+    margin-left: 350px;
+}
+
+.add_invoice {
+    display: flex;
+    margin: auto;
+}
+
+.clear_done, .btn_delete {
+    background: #000;
+    color: #fff;
+    width: auto;
+    border-radius: 25px;
+    padding: 6px;
+}
+.space_btwn {
+    margin: 10px;
+}
+
+@media screen and (max-width: 768px){
+    .invoice-btns {
+        margin-left: 50px;
+    }
+    .add_invoice {
+        margin: auto;
+    }
+}
