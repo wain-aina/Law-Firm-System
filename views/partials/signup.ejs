@@ -1,0 +1,32 @@
+<form method="post" action="/login">
+    <div class="form-group">
+        <input type="text" name="email" class="form-style" placeholder="Your Name" id="logname" autocomplete="off">
+        <i class="input-icon uil uil-user"></i>
+    </div>
+    <div class="form-group mt-1">
+        <input type="email" name="username" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+        <i class="input-icon uil uil-at"></i>
+    </div>
+    <div class="form-group mt-1">
+        <input type="password" name="password" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" required>
+        <i class="input-icon uil uil-lock-alt"></i>
+    </div>
+    <div class="form-group mt-1">
+        <select class="form-control form-style" name="clientType" required>
+            <option>Choose a type from the options below</option>
+            <option>Organization</option>
+            <option>Individual</option>
+        </select>
+        <i class="input-icon uil uil-code-branch"></i>
+    </div>
+    <div class="form-group mt-1">
+        <p>or sign up with</p>
+    </div>
+    <div class="form-group mt-2" >
+        <a href="/auth/google"><button type="button" class="btn google"><i class="fab fa-google fa-2x icon"></i>  Google.</button></a>
+    </div>
+    <div class="form-group mt-1">
+        <input type="hidden" name="formType" value="signup">
+    </div>
+    <button type="submit" class="form-style btn mt-1">submit</button>
+</form>

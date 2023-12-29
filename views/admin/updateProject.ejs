@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/client.css">
+    <title>Update Project</title>
+</head>
+<body>
+
+<style>
+    .hide_me, .hide_us  {
+        display: none;
+    }
+
+    #load-more, #more {
+        display: block;
+        width: 30%;
+        margin: 1rem auto 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        color: #fff;
+        background-color: #007bff;
+        cursor: pointer;
+    }
+
+    #show-less, #less {
+        width: 30%;
+        display: block;
+        margin: 1rem auto 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        color: #fff;
+        background-color: #007bff;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="/adminDash/updateProject/<%=editData._id%>" method="post">
+            <h1> Update Project </h1>
+
+            <fieldset>
+
+                <label for="name">Case Title:</label>
+                <input type="text" id="name" name="ctitle" autocomplete="off" value="<%=editData.ctitle%>" required>
+
+                <label for="email">Members: </label>
+                <input type="text" id="name" name="mem1" placeholder="" value="<%=editData.mem1%>" autocomplete="off" required>
+                <input type="text" id="name" name="mem2" <%if(editData.mem2){%>placeholder=" <%=editData.mem2%>"<%} else {%>placeholder="Member 2"<%}%> value="<%=editData.mem2%>" autocomplete="off">
+                <input type="text" id="name" name="mem3" <%if(editData.mem3){%>placeholder=" <%=editData.mem3%>"<%} else {%>placeholder="Member 3"<%}%> value="<%=editData.mem3%>" autocomplete="off">
+                <button type="button" id="more">Load More</button>
+                <input class="hide_us" type="text" id="name" name="mem4" <%if(editData.mem4){%>placeholder=" <%=editData.mem4%>"<%} else {%>placeholder="Member 4"<%}%> value="<%=editData.mem4%>" autocomplete="off" >
+                <input class="hide_us" type="text" id="name" name="mem5" <%if(editData.mem5){%>placeholder=" <%=editData.mem5%>"<%} else {%>placeholder="Member 5"<%}%> value="<%=editData.mem5%>" autocomplete="off">
+                <input class="hide_us" type="text" id="name" name="mem6" <%if(editData.mem6){%>placeholder=" <%=editData.mem6%>"<%} else {%>placeholder="Member 6"<%}%> value="<%=editData.mem6%>" autocomplete="off">
+                <input class="hide_us" type="text" id="name" name="mem7" <%if(editData.mem7){%>placeholder=" <%=editData.mem7%>"<%} else {%>placeholder="Member 7"<%}%> value="<%=editData.mem7%>" autocomplete="off" >
+                <input class="hide_us" type="text" id="name" name="mem8" <%if(editData.mem8){%>placeholder=" <%=editData.mem8%>"<%} else {%>placeholder="Member 8"<%}%> value="<%=editData.mem8%>" autocomplete="off">
+                <button type="button" id="less">Show Less</button>
+
+                <label for="text">Tasks: </label>
+                <input class=""type="text" id="name" name="task1" placeholder="Task Assigned" value="<%=editData.task1%>" autocomplete="off" required>
+                <input class=""type="text" id="name" name="task2" <%if(editData.task2){%>placeholder=" <%=editData.task2%>"<%} else {%>placeholder="Task Assigned 2"<%}%> value="<%=editData.task2%>" autocomplete="off">
+                <input class=""type="text" id="name" name="task3" <%if(editData.task3){%>placeholder=" <%=editData.task3%>"<%} else {%>placeholder="Task Assigned 3"<%}%> value="<%=editData.task3%>" autocomplete="off">
+                <button type="button" id="load-more">Load More</button>
+                <input class="hide_me" type="text" id="name" name="task4" <%if(editData.task4){%>placeholder=" <%=editData.task4%>"<%} else {%>placeholder="Task Assigned 4"<%}%> value="<%=editData.task4%>" autocomplete="off">
+                <input class="hide_me" type="text" id="name" name="task5" <%if(editData.task5){%>placeholder=" <%=editData.task5%>"<%} else {%>placeholder="Task Assigned 5"<%}%> value="<%=editData.task5%>" autocomplete="off">
+                <input class="hide_me" type="text" id="name" name="task6" <%if(editData.task6){%>placeholder=" <%=editData.task6%>"<%} else {%>placeholder="Task Assigned 6"<%}%> value="<%=editData.task6%>" autocomplete="off">
+                <input class="hide_me" type="text" id="name" name="task7" <%if(editData.task7){%>placeholder=" <%=editData.task7%>"<%} else {%>placeholder="Task Assigned 7"<%}%> value="<%=editData.task7%>" autocomplete="off">
+                <input class="hide_me" type="text" id="name" name="task8" <%if(editData.task8){%>placeholder=" <%=editData.task8%>"<%} else {%>placeholder="Task Assigned 8"<%}%> value="<%=editData.task8%>" autocomplete="off">
+
+                <button type="button" id="show-less">Show Less</button>
+
+            </fieldset>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+</div>
+<script>
+    var loadMoreButton = document.getElementById("load-more");
+    var showLessButton = document.getElementById("show-less");
+    var hiddenRows = document.querySelectorAll(".hide_me");
+    showLessButton.style.display = "none"
+    loadMoreButton.addEventListener("click", function() {
+        for (var i = 0; i < hiddenRows.length; i++) {
+            hiddenRows[i].classList.remove("hide_me");
+            if (i === hiddenRows.length - 1) {
+                loadMoreButton.style.display = "none";
+                showLessButton.style.display = ""
+            }
+        }
+    });
+    showLessButton.addEventListener("click", function(){
+        for (var i = 0; i < hiddenRows.length; i++) {
+            hiddenRows[i].classList.add("hide_me");
+            if (i === hiddenRows.length - 1) {
+                loadMoreButton.style.display = "";
+                showLessButton.style.display = "none"
+            }
+        }
+    })
+
+    var more = document.getElementById("more");
+    var less = document.getElementById("less");
+    var hidden = document.querySelectorAll(".hide_us");
+    less.style.display = "none"
+    more.addEventListener("click", function() {
+        for (var i = 0; i < hidden.length; i++) {
+            hidden[i].classList.remove("hide_us");
+            if (i === hidden.length - 1) {
+                more.style.display = "none";
+                less.style.display = ""
+            }
+        }
+    });
+    less.addEventListener("click", function(){
+        for (var i = 0; i < hidden.length; i++) {
+            hidden[i].classList.add("hide_us");
+            if (i === hidden.length - 1) {
+                more.style.display = "";
+                less.style.display = "none"
+            }
+        }
+    })
+</script>

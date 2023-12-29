@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/client.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="/adminDash/caseReports" method="post">
+            <h1> Add Case Report </h1>
+
+            <fieldset>
+
+                <legend><span class="number">1</span> Basic Info</legend>
+
+                <label for="name">Case Number:</label>
+                <input type="text" id="name" name="cnum" autocomplete="off">
+
+                <label for="text">Case Intro</label>
+                <input type="text" id="mail"  name="cintro" autocomplete="off">
+
+            </fieldset>
+            <fieldset>
+
+                <legend><span class="number">2</span> Case Bio </legend>
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="cbio" autocomplete="off"></textarea>
+
+                <legend><span class="number">3</span> Contacts </legend>
+
+                <label>Who to reach:</label>
+                <input type="text" id="mail" name="cname" placeholder="Name" autocomplete="off">
+                <input type="email" id="mail" name="cmail" placeholder="Email" autocomplete="off">
+                <input type="text" id="mail" name="cphone" placeholder="Phone No." autocomplete="off">
+
+                <legend><span class="number">4</span> Status </legend>
+                <select class="form-control" id="exampleFormControlSelect1" name="cStatus" required="required">
+                    <option>Open</option>
+                    <option>Closed</option>
+                    <option>Pending</option>
+                </select>
+
+            </fieldset>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

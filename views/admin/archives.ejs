@@ -1,0 +1,86 @@
+<%- include('adminPartials/head')%>
+
+<body class="inner_page email_page">
+<div class="full_container">
+    <div class="inner_container">
+        <!-- Sidebar  -->
+        <%- include('adminPartials/sidebar')%>
+        <!-- end sidebar -->
+        <!-- right content -->
+        <div id="content">
+            <!-- topbar -->
+            <%- include('adminPartials/adminBar')%>
+            <!-- end topbar -->
+            <!-- dashboard inner -->
+            <div class="midde_cont">
+                <div class="container-fluid">
+                    <div class="row column_title">
+                        <div class="col-md-12">
+                            <div class="page_title"><%- include('../partials/alerts')%></div>
+                        </div>
+                    </div>
+                    <!-- row -->
+
+                    <div class="container-fluid">
+                        <div class="row column1 folders">
+
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="folder_icon">
+                                <a href="/adminDash/images"><i class="fa fa-folder fa-5x" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="folder_name">Images</div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="folder_icon">
+                                <a href="/adminDash/invoiceStuff"><i class="fa fa-folder fa-5x" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="folder_name">Invoices</div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="folder_icon">
+                                <a href="/adminDash/projectFiles"><i class="fa fa-folder fa-5x" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="folder_name">Projects</div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div class="folder_icon">
+                                <a href="/adminDash/reportFiles"><i class="fa fa-folder fa-5x" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="folder_name">Reports</div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="folder_icon">
+                                    <a href="/adminDash/GovFiles"><i class="fa fa-folder fa-5x" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="folder_name">Government Cases</div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="folder_icon">
+                                    <a href="/adminDash/FahmFiles"><i class="fa fa-folder fa-5x" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="folder_name">Family Cases</div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-6 col-sm-12">
+                                <div class="folder_icon">
+                                    <a href="/adminDash/CourtFiles"><i class="fa fa-folder fa-5x" aria-hidden="true"></i></a>
+                                </div>
+                                <div class="folder_name">Court Cases</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+                <!-- end dashboard inner -->
+            </div>
+        </div>
+        <!-- model popup -->
+    </div>
+
+<%- include('adminPartials/foot')%>

@@ -1,0 +1,383 @@
+<%- include('adminPartials/head')%>
+
+<body class="inner_page project_page">
+<div class="full_container">
+    <div class="inner_container">
+        <!-- Sidebar  -->
+        <%- include('adminPartials/sidebar')%>
+        <!-- right content -->
+        <div id="content">
+            <!-- topbar -->
+            <%- include('adminPartials/adminBar')%>
+            <!-- end topbar -->
+            <!-- dashboard inner -->
+            <div class="midde_cont">
+                <div class="container-fluid">
+                    <div class="row column_title">
+                        <div class="col-md-12">
+                            <div class="page_title">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row -->
+                    <div class="row column1">
+                        <div class="col-md-12">
+                            <div class="white_shd full margin_bottom_30">
+                                <div class="full graph_head">
+                                    <div class="heading1 margin_0">
+                                        <h2>Project</h2>
+                                    </div>
+                                </div>
+                                <div class="full price_table padding_infor_info">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="table-responsive-lg">
+                                                <table class="table table-striped projects">
+                                                    <thead class="thead-dark">
+                                                    <tr>
+                                                        <th style="width: 2%">No</th>
+                                                        <th style="width: 7.5%">Project Title</th>
+                                                        <th>Members</th>
+                                                        <th>Tasks</th>
+                                                        <th>Project Progress</th>
+                                                        <th>Add Project Reports</th>
+                                                        <th>Status</th>
+                                                        <%if(around === "admin"){%>
+                                                        <th>Edit</th>
+                                                        <th>Delete</th>
+                                                        <%}%>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <%project.forEach(function(project, num){%>
+                                                            <tr>
+                                                                <td><%=num+1%></td>
+                                                                <td>
+                                                                    <a><%=project.ctitle%></a>
+                                                                </td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li>
+                                                                            <%if(project.mem1){%>
+                                                                            <p>
+                                                                                1. <%=project.mem1%>
+                                                                            </p>
+                                                                            <%}%>
+                                                                            <%if(project.mem2){%>
+                                                                            <p>
+                                                                                2. <%=project.mem2%>
+                                                                            </p>
+                                                                            <%}%>
+                                                                            <%if(project.mem3){%>
+                                                                            <p>
+                                                                                3. <%=project.mem3%>
+                                                                            </p>
+                                                                            <%}%>
+                                                                            <%if(project.mem4){%>
+                                                                            <p>
+                                                                                4. <%=project.mem4%>
+                                                                            </p>
+                                                                            <%}%>
+                                                                            <%if(project.mem5){%>
+                                                                            <p>
+                                                                                5. <%=project.mem5%>
+                                                                            </p>
+                                                                            <%}%>
+                                                                            <%if(project.mem6){%>
+                                                                            <p>
+                                                                                6. <%=project.mem6%>
+                                                                            </p>
+                                                                            <%}%>
+                                                                            <%if(project.mem7){%>
+                                                                            <p>
+                                                                                7. <%=project.mem7%>
+                                                                            </p>
+                                                                            <%}%>
+                                                                            <%if(project.mem8){%>
+                                                                            <p>
+                                                                                8. <%=project.mem8%>
+                                                                            </p>
+                                                                            <%}%>
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </td>
+                                                                <td>
+                                                                    <ul class="list-inline">
+                                                                        <li>
+
+                                                                            <form action="/adminDash/done/task1" method="post" class="task1form">
+                                                                                <%if(project.task1){%>
+                                                                                <p><input type="checkbox" class="todo-1" id="todo-1" name="task1" value="<%=project.task1%>"<% if (project.task1Completed) { %>checked<% } %>><label for="todo-4"><%=project.task1%></label></p>
+                                                                                <%}%>
+                                                                            </form>
+
+                                                                            <form action="/adminDash/done/task2" method="post" class="task2form">
+                                                                                <%if(project.task2){%>
+                                                                                <p><input type="checkbox" class="todo-2" id="todo-2" name="task2" value="<%=project.task2%>"<% if (project.task2Completed) { %>checked<% } %>><label for="todo-4"><%=project.task2%></label></p>
+                                                                                <%}%>
+                                                                            </form>
+
+                                                                            <form action="/adminDash/done/task3" method="post" class="task3form">
+                                                                                <%if(project.task3){%>
+                                                                                <p><input type="checkbox" class="todo-3" id="todo-3" name="task3" value="<%=project.task3%>"<% if (project.task3Completed) { %>checked<% } %>><label for="todo-4"><%=project.task3%></label></p>
+                                                                                <%}%>
+                                                                            </form>
+
+                                                                            <form action="/adminDash/done/task4" method="post" class="task4form">
+                                                                                <%if(project.task4){%>
+                                                                                <p><input type="checkbox" class="todo-4" id="todo-4" name="task4" value="<%=project.task4%>"<% if (project.task4Completed) { %>checked<% } %>><label for="todo-4"><%=project.task4%></label></p>
+                                                                                <%}%>
+                                                                            </form>
+
+                                                                            <form action="/adminDash/done/task5" method="post" class="task5form">
+                                                                                <%if(project.task5){%>
+                                                                                <p><input type="checkbox" class="todo-5" id="todo-5" name="task5" value="<%=project.task5%>"<% if (project.task5Completed) { %>checked<% } %>><label for="todo-4"><%=project.task5%></label></p>
+                                                                                <%}%>
+                                                                            </form>
+
+                                                                            <form action="/adminDash/done/task6" method="post" class="task6form">
+                                                                                <%if(project.task6){%>
+                                                                                <p><input type="checkbox" class="todo-6" id="todo-6" name="task6" value="<%=project.task6%>"<% if (project.task6Completed) { %>checked<% } %>><label for="todo-4"><%=project.task6%></label></p>
+                                                                                <%}%>
+                                                                            </form>
+
+                                                                            <form action="/adminDash/done/task7" method="post" class="task7form">
+                                                                                <%if(project.task7){%>
+                                                                                <p><input type="checkbox" class="todo-7" id="todo-7" name="task7" value="<%=project.task7%>"<% if (project.task7Completed) { %>checked<% } %>><label for="todo-4"><%=project.task7%></label></p>
+                                                                                <%}%>
+                                                                            </form>
+
+                                                                            <form action="/adminDash/done/task8" method="post" class="task8form">
+                                                                                <%if(project.task8){%>
+                                                                                <p><input type="checkbox" class="todo-8" id="todo-8" name="task8" value="<%=project.task8%>"<% if (project.task8Completed) { %>checked<% } %>><label for="todo-4"><%=project.task8%></label></p>
+                                                                                <%}%>
+                                                                            </form>
+
+<!--                                                                            -->
+
+                                                                    </li>
+                                                                    </ul>
+                                                                    </ul>
+                                                                </td>
+                                                                <td class="project_progress">
+                                                                    <div class="progress progress_sm">
+                                                                        <%var taskCount = 0%>
+                                                                        <%if(project.task1){%>
+                                                                            <%taskCount++%>
+                                                                            <%if(project.task2){%>
+                                                                                 <%taskCount++%>
+                                                                                <%if(project.task3){%>
+                                                                                    <%taskCount++%>
+                                                                                    <%if(project.task4){%>
+                                                                                        <%taskCount++%>
+                                                                                        <%if(project.task5){%>
+                                                                                            <%taskCount++%>
+                                                                                             <%if(project.task6){%>
+                                                                                                <%taskCount++%>
+                                                                                                <%if(project.task7){%>
+                                                                                                     <%taskCount++%>
+                                                                                                    <%if(project.task8){%>
+                                                                                                        <%taskCount++%>
+                                                                                                    <%}%>
+                                                                                                 <%}%>
+                                                                                            <%}%>
+                                                                                        <%}%>
+                                                                                     <%}%>
+                                                                                 <%}%>
+                                                                            <%}%>
+                                                                        <%}%>
+
+                                                                        <%var completeCount = 0%>
+                                                                        <%if(project.task1 && project.task1Completed){%>
+                                                                        <%completeCount++%>
+                                                                        <%}%>
+                                                                        <%if(project.task2 && project.task2Completed){%>
+                                                                        <%completeCount++%>
+                                                                        <%}%>
+                                                                        <%if(project.task3 && project.task3Completed){%>
+                                                                        <%completeCount++%>
+                                                                        <%}%>
+                                                                        <%if(project.task4 && project.task4Completed){%>
+                                                                        <%completeCount++%>
+                                                                        <%}%>
+                                                                        <%if(project.task5 && project.task5Completed){%>
+                                                                        <%completeCount++%>
+                                                                        <%}%>
+                                                                        <%if(project.task6 && project.task6Completed){%>
+                                                                        <%completeCount++%>
+                                                                        <%}%>
+                                                                        <%if(project.task7 && project.task7Completed){%>
+                                                                        <%completeCount++%>
+                                                                        <%}%>
+                                                                        <%if(project.task8 && project.task8Completed){%>
+                                                                        <%completeCount++%>
+                                                                        <%}%>
+
+                                                                        <%var progress = Math.round((completeCount/taskCount)*100)%>
+
+                                                                        <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: <%=progress%>%;"></div>
+                                                                    </div>
+                                                                    <small class="small_text"><%=progress%>% Complete</small>
+                                                                </td>
+                                                                <td>
+                                                                    <% for (const item of project.files) { %>
+                                                                    <div class="col-lg-3 col-md-6 col-sm-12">
+                                                                        <div class="folder_icon">
+                                                                            <a href="/download/userProjects/<%=item.filename%>"><i class="fa fa-folder fa-5x red_color" aria-hidden="true"></i></a>
+                                                                        </div>
+                                                                        <div class="folder_name"><%=item.filename%></div>
+                                                                    </div>
+                                                                    <%}%>
+                                                                    <form action="/adminDash/projects/<%=project._id%>" enctype="multipart/form-data" method="POST">
+                                                                    <div class="box">
+                                                                        <input type="file" name="myReport" id="file-1" multiple="true"/>
+                                                                    </div>
+                                                                    <div class="box">
+                                                                        <input type="submit"  id="submit" />
+                                                                    </div>
+
+                                                                    </form>
+                                                                </td>
+                                                                <script>
+
+                                                                </script>
+                                                                <td>
+                                                                    <button type="button" class="btn btn-xs"
+                                                                            <%if(progress > 99){%>
+                                                                                style="background-color:#32CD32;text-transform: capitalize;"
+                                                                            <%} else if(progress >= 1 && progress <= 100){%>
+                                                                                style="background-color:#ffff00;text-transform: capitalize;"
+                                                                            <%} else {%>
+                                                                                style="background-color:#ff0000;text-transform: capitalize;"
+                                                                            <%}%>
+
+                                                                            <%let status = ''%>
+                                                                            <%if(progress > 99){%>
+                                                                                <%status = 'CLOSED'%>
+                                                                            <%}else if(progress < 1){%>
+                                                                            <%status = 'OPEN'%>
+                                                                            <%} else {%>
+                                                                            <%status = 'PENDING'%>
+                                                                            <%}%>
+
+                                                                    ><span class="btn-status" style="text-transform: uppercase;"><%=status%></span></button>
+                                                                </td>
+                                                                <%if(around === "admin"){%>
+                                                                <td>
+                                                                    <div class="deleteBtn">
+                                                                        <a href="/adminDash/updateProject/<%=project._id%>"><button class="btn_delete"><i class="fa fa-pencil-square fa-2x"></i></button></a>
+                                                                    </div>
+                                                                </td>
+
+                                                                <%if (status === "CLOSED"){%>
+                                                                    <td>
+                                                                        <div class="deleteBtn">
+                                                                            <form action="/delete/<%= project._id %>?_method=DELETE" method="post">
+                                                                                <button class="btn_delete" type="submit"><i class="fa fa-trash fa-2x"></i></button>
+                                                                            </form>
+                                                                        </div>
+                                                                    </td>
+                                                                <%} else {%>
+                                                                    <td></td>
+                                                                <%}%>
+                                                                <%}%>
+                                                            </tr>
+                                                    <%})%>
+
+                                                    </tbody>
+                                                </table>
+                                                <%if(around === "admin"){%>
+                                                <a href="/adminDash/addProject"><button class="add_member add_project">NEW PROJECT</button></a>
+                                                <%}%>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end row -->
+                    </div>
+                </div>
+                <!-- end dashboard inner -->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+     document.querySelectorAll('.todo-1').forEach((check, num)=>{
+        check.addEventListener("click", (e)=>{
+            if(check.checked){
+                e.preventDefault()
+                document.querySelectorAll('.task1form')[num].submit()
+            }
+        })
+    })
+
+    document.querySelectorAll('.todo-2').forEach((check, num)=>{
+         check.addEventListener("click", (e)=>{
+             if(check.checked){
+                 e.preventDefault()
+                 document.querySelectorAll('.task2form')[num].submit()
+             }
+         })
+     })
+
+    document.querySelectorAll('.todo-3').forEach((check, num)=>{
+         check.addEventListener("click", (e)=>{
+             if(check.checked){
+                 e.preventDefault()
+                 document.querySelectorAll('.task3form')[num].submit()
+             }
+         })
+     })
+
+    document.querySelectorAll('.todo-4').forEach((check, num)=>{
+         check.addEventListener("click", (e)=>{
+             if(check.checked){
+                 e.preventDefault()
+                 document.querySelectorAll('.task4form')[num].submit()
+             }
+         })
+     })
+
+    document.querySelectorAll('.todo-5').forEach((check, num)=>{
+         check.addEventListener("click", (e)=>{
+             if(check.checked){
+                 e.preventDefault()
+                 document.querySelectorAll('.task5form')[num].submit()
+             }
+         })
+     })
+
+    document.querySelectorAll('.todo-6').forEach((check, num)=>{
+         check.addEventListener("click", (e)=>{
+             if(check.checked){
+                 e.preventDefault()
+                 document.querySelectorAll('.task6form')[num].submit()
+             }
+         })
+     })
+
+    document.querySelectorAll('.todo-7').forEach((check, num)=>{
+         check.addEventListener("click", (e)=>{
+             if(check.checked){
+                 e.preventDefault()
+                 document.querySelectorAll('.task7form')[num].submit()
+             }
+         })
+     })
+
+    document.querySelectorAll('.todo-8').forEach((check, num)=>{
+         check.addEventListener("click", (e)=>{
+             if(check.checked){
+                 e.preventDefault()
+                 document.querySelectorAll('.task8form')[num].submit()
+             }
+         })
+     })
+
+
+</script>
+<%- include('adminPartials/foot')%>

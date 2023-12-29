@@ -1,0 +1,83 @@
+<div class="midde_cont">
+    <div class="container-fluid">
+        <div class="row column_title">
+            <div class="col-md-12">
+                <div class="page_title">
+                    <h2>Dashboard</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row column1">
+            <div class="col-md-6 col-lg-3">
+                <div class="full counter_section margin_bottom_30">
+                    <div class="couter_icon">
+                        <div>
+                            <i class="fa fa-user yellow_color"></i>
+                        </div>
+                    </div>
+                    <div class="counter_no">
+                        <div>
+                            <p class="head_couter">Welcome</p>
+                            <p class="total_no">You have <strong><%=visitors%></strong> Appointment(s)</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="full counter_section margin_bottom_30">
+                    <div class="couter_icon">
+                        <div>
+                            <i class="fa fa-clock-o blue1_color"></i>
+                        </div>
+                    </div>
+                    <div class="counter_no">
+                        <div>
+                            <p id="currentDate" class="total_no"></p>
+                            <p id="currentTime" class="total_no"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="full counter_section margin_bottom_30">
+                    <div class="couter_icon">
+                        <div>
+                            <i class="fa fa-gavel green_color"></i>
+                        </div>
+                    </div>
+                    <div class="counter_no">
+                        <div>
+                            <p class="head_couter">Projects</p>
+                            <p class="total_no"><strong><%=jobs%></strong> Ongoing Project(s)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="full counter_section margin_bottom_30">
+                    <div class="couter_icon">
+                        <div>
+                            <i class="fa fa-comments-o red_color"></i>
+                        </div>
+                    </div>
+                    <div class="counter_no">
+                        <div>
+                            <p class="head_couter">News</p>
+                            <p class="total_no">You have <strong><%=news%></strong> Update(s)</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+<script>
+            function doDate() {
+            let currentDate = document.getElementById('currentDate');
+            let currentTime = document.getElementById('currentTime');
+            let currentDay = new Date().toLocaleDateString("en-US", { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' })
+            let current = new Date().toLocaleTimeString();
+            currentDate.innerHTML = `<b>${currentDay}</b> `
+            currentTime.innerHTML = `<b>${current}</b> `;
+            }
+
+            setInterval(doDate, 1000);
+</script>

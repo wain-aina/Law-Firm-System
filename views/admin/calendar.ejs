@@ -1,0 +1,77 @@
+<%- include('adminPartials/head')%>
+
+<body class="inner_page invoice_page">
+<div class="full_container">
+    <div class="inner_container">
+        <!-- Sidebar  -->
+        <%- include('adminPartials/sidebar')%>
+        <!-- end sidebar -->
+        <!-- right content -->
+        <div id="content">
+            <!-- topbar -->
+            <%- include('adminPartials/adminBar')%>
+            <!-- end topbar -->
+            <!-- dashboard inner -->
+            <div class="midde_cont">
+                <div class="container-fluid">
+                    <!-- row -->
+                    <div class="row">
+                        <!-- invoice section -->
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="full graph_head">
+                                        <div class="heading1 margin_0">
+                                            <h2><i class="fa fa-calendar" aria-hidden="true"></i> Calendar <br> <p><em>NB: Blue = Work, Yellow = Holiday, Pink = Event</em></p></h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div id="calendar"></div>
+                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/evo-calendar/1.1.12/evo-calendar.min.js"></script>
+
+                                            <script>
+                                                $(document).ready(function() {
+                                                    $('#calendar').evoCalendar({
+                                                        settingName: "Sigani",
+                                                        todayHighlight:true,
+                                                        calendarEvents: [
+                                                            <% stuff.forEach(function(event) { %>
+                                                            {
+                                                                id: '<%= event._id %>',
+                                                                name: '<%= event.name %>',
+                                                                date: '<%= event.date %>',
+                                                                description: '<%= event.description %>',
+                                                                type:  '<%=event.eventType%>'
+                                                            },
+                                                            <% }); %>
+                                                        ]
+
+                                                    });
+                                                });
+                                            </script>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/adminDash/diaryEntry"><button class="btn_delete"><i class="fa fa-plus fa-2x"></i></button></a>
+                        </div>
+                    </div>
+                    <!-- row -->
+                </div>
+                <!-- footer -->
+            </div>
+            <!-- end dashboard inner -->
+        </div>
+    </div>
+    <!-- model popup -->
+    <!-- The Modal -->
+    <%- include('adminPartials/modalPop')%>
+    <!-- end model popup -->
+</div>
+
+<%- include('adminPartials/foot')%>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>Sigani Associates</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/
+
+   <!-- site icon -->
+   <link rel="icon" href="images/fevicon.png" type="image/png" />
+   <!-- bootstrap css -->
+   <link rel="stylesheet" href="/css/bootstrap.css" />
+   <!-- site css -->
+   <link rel="stylesheet" href="/css/adminDash.css" />
+   <!-- responsive css -->
+   <link rel="stylesheet" href="/css/responsive.css" />
+   <!-- color css -->
+   <link rel="stylesheet" href="/css/color_2.css" />
+   <!-- select bootstrap -->
+   <link rel="stylesheet" href="/css/bootstrap-select.css" />
+   <!-- scrollbar css -->
+   <link rel="stylesheet" href="/css/perfect-scrollbar.css" />
+   <!-- Core Stylesheet -->
+   <link rel="stylesheet" href="/css/calendar.css" />
+   <!-- Optional Themes -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/evo-calendar/1.1.12/themes/orange-coral/evo-calendar.orange-coral.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/evo-calendar/1.1.12/themes/midnight-blue/evo-calendar.midnight-blue.min.css" />
+
+   <!-- custom css -->
+   <link rel="stylesheet" href="/css/calendar.css" />
+   <link rel="stylesheet" href="/css/add.css">
+   <link rel="stylesheet" href="/css/deleteBtn.css">
+   <link rel="stylesheet" href="/css/email.css">
+   <link rel="stylesheet" href="/css/archives.css">
+   <link rel="stylesheet" href="/css/uploadBtns.css">
+   <link rel="stylesheet" href="/css/searchStyle.css">
+
+</head>
+<body class="dashboard dashboard_2">
+<div class="full_container">
+   <div class="inner_container">
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+         <div class="sidebar_blog_1">
+            <div class="sidebar-header">
+               <div class="logo_section">
+                  <img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" />
+               </div>
+            </div>
+            <div class="sidebar_user_info">
+               <div class="icon_setting"></div>
+               <div class="user_profle_side">
+                  <div class="user_info">
+                     <h6><%=user.email%></h6>
+
+                     <p><span class="online_animation"></span> Online</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="sidebar_blog_2">
+            <h4>General</h4>
+            <ul class="list-unstyled components">
+               <li class="active">
+                  <a href="/dashboard" aria-expanded="false"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+               </li>
+               <li>
+                  <a href="">
+                     <i class="fa fa-pencil"></i> <span>Client Particulars</span>
+                  </a>
+               </li>
+               <li>
+                  <a href="/dashboard/addAppointment">
+                     <i class="fa fa-plus"></i> <span>New Appointment</span>
+                  </a>
+               </li>
+
+            </ul>
+         </div>
+      </nav>
+      <!-- end sidebar -->
+      <!-- right content -->
+      <div id="content">
+         <!-- topbar -->
+         <div class="topbar">
+            <nav class="navbar navbar-expand-lg navbar-light">
+               <div class="full">
+                  <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                  <div class="logo_section">
+                  </div>
+                  <div class="right_topbar">
+                     <div class="icon_info">
+
+                        <ul class="user_profile_dd">
+                           <li>
+                              <a class="dropdown-toggle" data-toggle="dropdown"><img width="180" class="rounded-circle" src="../images/layout_img/faceless.jpg" alt="#" /><span class="name_user"><%=user.email%></span></a>
+                              <div class="dropdown-menu">
+                                 <form action="/logout" method="post">
+                                    <button class="client_logout" type="submit"><a class="dropdown-item"><span>Log Out</span> <i class="fa fa-sign-out"></i></a></button>
+                                 </form>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </nav>
+         </div>
+         <!-- end topbar -->
+         <!-- dashboard inner -->
+         <div class="midde_cont">
+            <div class="container-fluid">
+               <div class="row column_title">
+                  <div class="col-md-12">
+                     <div class="page_title"></div>
+                  </div>
+               </div>
+               <div class="col-md-12">
+                  <div class="white_shd full margin_bottom_30">
+                     <div class="full graph_head">
+                        <div class="heading1 margin_0">
+                           <h2> Your Case Files </h2>
+                        </div>
+                     </div>
+                     <div class="table_section padding_infor_info">
+                        <div class="table-responsive-sm">
+                           <table class="table">
+                              <thead>
+                              <tr>
+                                 <th>#</th>
+                                 <th>Title</th>
+                                 <th>Case Type</th>
+                                 <th>Your Name</th>
+                                 <th>Lawyer Phone No:</th>
+                                 <th>Lawyer(s)</th>
+                                 <th>Tasks</th>
+                                 <th>Progress</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <%cases.forEach((file,num) => {%>
+                              <tr>
+                                 <td><%=num+1%></td>
+                                 <td><%=file.caseTitle%></td>
+                                 <td><%=file.caseType%></td>
+                                 <td><%=file.orgName%></td>
+                                 <td><%=file.lawyerNumber%></td>
+                                 <td>
+                                    <ul class="list-inline">
+                                          <%if(file.lawyer1){%>
+                                          <p>
+                                             1. <%=file.lawyer1%>
+                                          </p>
+                                          <%}%>
+                                          <%if(file.lawyer2){%>
+                                          <p>
+                                             2. <%=file.lawyer2%>
+                                          </p>
+                                          <%}%>
+                                          <%if(file.lawyer3){%>
+                                          <p>
+                                             3. <%=file.lawyer3%>
+                                          </p>
+                                          <%}%>
+                                          <%if(file.lawyer4){%>
+                                          <p>
+                                             4. <%=file.lawyer4%>
+                                          </p>
+                                          <%}%>
+                                          <%if(file.lawyer5){%>
+                                          <p>
+                                             5. <%=file.lawyer5%>
+                                          </p>
+                                          <%}%>
+                                          <%if(file.lawyer6){%>
+                                          <p>
+                                             6. <%=file.lawyer6%>
+                                          </p>
+                                          <%}%>
+                                          <%if(file.lawyer7){%>
+                                          <p>
+                                             7. <%=file.lawyer7%>
+                                          </p>
+                                          <%}%>
+                                          <%if(file.lawyer8){%>
+                                          <p>
+                                             8. <%=file.lawyer8%>
+                                          </p>
+                                          <%}%>
+                                    </ul>
+                                 </td>
+                                 <td>
+                                    <ul class="list-inline">
+                                             <%if(file.job1){%>
+                                             <p><%=file.job1%></p>
+                                             <%}%>
+
+                                             <%if(file.job2){%>
+                                             <p><%=file.job2%></p>
+                                             <%}%>
+
+                                          <%if(file.job3){%>
+                                          <p><%=file.job3%></p>
+                                          <%}%>
+
+                                          <%if(file.job4){%>
+                                          <p><%=file.job4%></p>
+                                          <%}%>
+
+                                          <%if(file.job5){%>
+                                          <p><%=file.job5%></p>
+                                          <%}%>
+
+                                          <%if(file.job6){%>
+                                          <p><%=file.job6%></p>
+                                          <%}%>
+
+                                          <%if(file.job7){%>
+                                          <p><%=file.job7%></p>
+                                          <%}%>
+
+                                          <%if(file.job8){%>
+                                          <p><%=file.job8%></p>
+                                          <%}%>
+                                    </ul>
+                                 </td>
+                                 <td class="project_progress">
+                                    <div class="progress progress_sm">
+                                       <%var taskCount = 0%>
+                                       <%if(file.job1){%>
+                                       <%taskCount++%>
+                                       <%if(file.job2){%>
+                                       <%taskCount++%>
+                                       <%if(file.job3){%>
+                                       <%taskCount++%>
+                                       <%if(file.job4){%>
+                                       <%taskCount++%>
+                                       <%if(file.job5){%>
+                                       <%taskCount++%>
+                                       <%if(file.job6){%>
+                                       <%taskCount++%>
+                                       <%if(file.job7){%>
+                                       <%taskCount++%>
+                                       <%if(file.job8){%>
+                                       <%taskCount++%>
+                                       <%}%>
+                                       <%}%>
+                                       <%}%>
+                                       <%}%>
+                                       <%}%>
+                                       <%}%>
+                                       <%}%>
+                                       <%}%>
+
+                                       <%var completeCount = 0%>
+                                       <%if(file.job1 && file.job1Completed){%>
+                                       <%completeCount++%>
+                                       <%}%>
+                                       <%if(file.job2 && file.job2Completed){%>
+                                       <%completeCount++%>
+                                       <%}%>
+                                       <%if(file.job3 && file.job3Completed){%>
+                                       <%completeCount++%>
+                                       <%}%>
+                                       <%if(file.job4 && file.job4Completed){%>
+                                       <%completeCount++%>
+                                       <%}%>
+                                       <%if(file.job5 && file.job5Completed){%>
+                                       <%completeCount++%>
+                                       <%}%>
+                                       <%if(file.job6 && file.job6Completed){%>
+                                       <%completeCount++%>
+                                       <%}%>
+                                       <%if(file.job7 && file.job7Completed){%>
+                                       <%completeCount++%>
+                                       <%}%>
+                                       <%if(file.job8 && file.job8Completed){%>
+                                       <%completeCount++%>
+                                       <%}%>
+
+                                       <%var progress = Math.round((completeCount/taskCount)*100)%>
+
+                                       <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: <%=progress%>%;"></div>
+                                    </div>
+                                    <small class="small_text"><%=progress%>% Complete</small>
+                                 </td>
+                              </tr>
+                              <%})%>
+                              </tbody>
+                           </table>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+
+               </div>
+
+               <!-- footer -->
+
+               <!-- end dashboard inner -->
+            </div>
+         </div>
+      </div>
+      <script>
+         function doDate() {
+            let currentDate = document.getElementById('currentDate');
+            let currentTime = document.getElementById('currentTime');
+            let currentDay = new Date().toLocaleDateString("en-US", { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' })
+            let current = new Date().toLocaleTimeString();
+            currentDate.innerHTML = `<b>${currentDay}</b> `
+            currentTime.innerHTML = `<b>${current}</b> `;
+         }
+
+         setInterval(doDate, 1000);
+      </script>
+
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/popper.min.js"></script>
+      <script src="/js/bootstrap.min.js"></script>
+      <!-- wow animation -->
+      <script src="/js/animate.js"></script>
+      <!-- select country -->
+      <script src="/js/bootstrap-select.js"></script>
+      <!-- owl carousel -->
+      <script src="/js/owl.carousel.js"></script>
+      <!-- chart js -->
+      <script src="/js/Chart.min.js"></script>
+      <script src="/js/Chart.bundle.min.js"></script>
+      <script src="/js/utils.js"></script>
+      <script src="/js/analyser.js"></script>
+      <!-- nice scrollbar -->
+      <script src="/js/perfect-scrollbar.min.js"></script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+      <!-- custom js -->
+      <script src="/js/custom.js"></script>
+      <script src="/js/chart_custom_style2.js"></script>
+</body>
+</html>

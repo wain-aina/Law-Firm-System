@@ -1,0 +1,163 @@
+<%- include('adminPartials/head')%>
+
+<body class="inner_page widgets">
+<div class="full_container">
+    <div class="inner_container">
+        <!-- Sidebar  -->
+        <%- include('adminPartials/sidebar')%>
+        <!-- end sidebar -->
+        <!-- right content -->
+        <div id="content">
+            <!-- topbar -->
+            <%- include('adminPartials/adminBar')%>
+            <!-- end topbar -->
+            <!-- dashboard inner -->
+            <div class="midde_cont">
+                <div class="container-fluid">
+                    <div class="row column_title">
+                        <div class="col-md-12">
+                            <div class="page_title"><%- include('../partials/alerts')%></div>
+                        </div>
+                    </div>
+
+
+                    <div class="row column4 graph">
+                        <div class="col-md-12">
+                            <div class="white_shd full margin_bottom_30">
+                                <div class="full graph_head">
+                                    <div class="heading1 margin_0">
+                                        <h2>Assigned Tasks</h2>
+                                    </div>
+                                </div>
+                                <div class="full progress_bar_inner">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="msg_section">
+                                                <div class="msg_list_main">
+                                                    <ul class="msg_list">
+                                                    <%jobs.forEach(job=>{%>
+                                                            <li>
+                                                                <span><img src="/images/layout_img/msg2.png" class="img-responsive" alt="#" /></span>
+                                                                <span>
+                                                   <span class="name_user">Task: <%=job.name%></span>
+                                                   <span class="msg_user">Member(s) Assigned: <ol><li><%=job.taskMem1%></li><li><%=job.taskMem2%></li><li><%=job.taskMem3%></li></ol> </span><br>
+                                                    <span class="msg_user">Milestone(s) To Achieve: <ol><li><%=job.assignedTask1%></li><li><%=job.assignedTask2%></li><li><%=job.assignedTask3%></li></ol></span>
+                                                   <span class="time_ago">
+                                                   </span>
+                                                   </span>
+                                                                <div class="dueBy">
+                                                                    <p>These tasks are due by<br> <%=job.dueDate%><br> at <br><%=job.dueTime%>hrs</p>
+                                                                </div>
+                                                            </li>
+                                                        <%})%>
+                                                        <%if(around === "admin"){%>
+                                                        <li>
+                                                            <a href="/adminDash/addTask"><button class="add_member">NEW TASK</button></a>
+                                                        </li>
+                                                        <%}%>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="white_shd full margin_bottom_30">
+                                <div class="full graph_head">
+                                    <div class="heading1 margin_0">
+                                        <h2>Agenda for <script>document.write(new Date().toLocaleDateString("en-US", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }))</script></h2>
+                                    </div>
+                                </div>
+                                <div class="full progress_bar_inner">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="msg_list_main">
+                                                <ul class="msg_list">
+                                                    <%leo.forEach(function(agenda){%>
+                                                    <li>
+                                                <span>
+                                                <span class="name_user"><%=agenda.aName%></span>
+                                                <span class="msg_user"><%=agenda.aPriority%></span>
+                                                <span class="time_ago"><%=agenda.aTime%></span>
+                                                    <%if(around === "admin"){%>
+                                                     <span class="time_ago2">
+                                                       <div class="deleteBtn">
+                                                            <form action="/delete/<%= agenda._id %>?_method=DELETE" method="post">
+                                                                <button class="btn_delete" type="submit"><i class="fa fa-trash"></i></button>
+                                                             </form>
+                                                        </div>
+                                                   </span>
+                                                    <%}%>
+                                                </span>
+                                                    </li>
+                                                    <%})%>
+                                                    <%if(around === "admin"){%>
+                                                    <li>
+                                                        <a href="/adminDash/addAgenda"><button class="add_member">NEW AGENDA</button></a>
+                                                    </li>
+                                                    <%}%>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="white_shd full margin_bottom_30">
+                                <div class="full graph_head">
+                                    <div class="heading1 margin_0">
+                                        <h2>Upcoming Events</h2>
+                                    </div>
+                                </div>
+                                <div class="full progress_bar_inner">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="msg_list_main">
+                                                <ul class="msg_list">
+                                                    <%task.forEach(function(task){%>
+                                                    <li>
+                                                <span>
+                                                <span class="name_user"><%=task.eventType%></span>
+                                                <span class="msg_user"><%=task.eventDate%></span>
+                                                <span class="time_ago"><%=task.eventTime%></span>
+                                                    <%if(around === "admin"){%>
+                                                    <span class="time_ago2">
+                                                       <div class="deleteBtn">
+                                                            <form action="/delete/<%= task._id %>?_method=DELETE" method="post">
+                                                                <button class="btn_delete" type="submit"><i class="fa fa-trash fa-2x"></i></button>
+                                                             </form>
+                                                        </div>
+                                                   </span>
+                                                    <%}%>
+                                                </span>
+                                                    </li>
+                                                    <%})%>
+                                                    <%if(around === "admin"){%>
+                                                    <li>
+                                                        <a href="/adminDash/addEvent"><button class="add_member">NEW EVENT</button></a>                                                             </form>
+                                                    </li>
+                                                    <%}%>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- footer -->
+
+            </div>
+            <!-- end dashboard inner -->
+        </div>
+    </div>
+</div>
+
+<%- include('adminPartials/foot')%>

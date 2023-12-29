@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/client.css">
+    <title>Document</title>
+</head>
+<body>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="/adminDash/reach" method="post">
+            <h1> Add Team Member </h1>
+
+            <fieldset>
+
+                <legend><span class="number">1</span> Basic Info</legend>
+
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="full_name" autocomplete="off">
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="name" name="mail_name" autocomplete="off">
+
+                <label for="text">Occupation</label>
+                <input type="text" id="mail"       name="occupation" autocomplete="off">
+
+                <label for="text">Phone Number:</label>
+                <input type="text" id="mail"       name="user_phone" autocomplete="off">
+
+            </fieldset>
+            <fieldset>
+
+                <legend><span class="number">2</span> Profile </legend>
+
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="user_bio" autocomplete="off"></textarea>
+
+                <label for="job">Job Role:</label>
+                <textarea id="bio" name="job_bio" autocomplete="off"></textarea>
+
+                <label>What are some of your interests:</label>
+                <input type="text" id="mail" name="user_fun1" placeholder="1." autocomplete="off">
+                <input type="text" id="mail" name="user_fun2" placeholder="2." autocomplete="off">
+                <input type="text" id="mail" name="user_fun3" placeholder="3." autocomplete="off">
+
+            </fieldset>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

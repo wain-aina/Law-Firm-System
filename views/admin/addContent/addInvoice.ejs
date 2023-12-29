@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/invoice.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <div class="card">
+                <h5 class="text-center mb-4">Enter The Invoice Details</h5>
+                <form class="form-card" action="/adminDash/invoice" method="post">
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Client's name<span class="text-danger"> *</span></label> <input type="text" id="cname" name="cname" placeholder="Enter your Client's name" onblur="validate(1)"  autocomplete="off" required> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Client's Phone<span class="text-danger"> *</span></label> <input type="text" id="cphone" name="cphone" placeholder="" onblur="validate(2)" autocomplete="off" required> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Client's Email Address<span class="text-danger"> *</span></label> <input type="email" id="clocale" name="cEmail" placeholder="" onblur="validate(3)" autocomplete="off" required> </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Invoice ID number<span class="text-danger"> *</span></label> <input type="text" id="cid" name="cid" placeholder="" onblur="validate(4)" autocomplete="off" required> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Issue Date<span class="text-danger"> *</span></label> <input type="text" id="cissue" name="cissue" placeholder="DD/MM/YYYY format" onblur="validate(5)" autocomplete="off" required> </div>
+                    </div>
+                    <h5 class="text-center mb-4">Services Rendered</h5>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 1<span class="text-danger"> *</span></label> <input type="text" id="serv1" name="serv1" placeholder="Service" onblur="validate(5)" autocomplete="off" required> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan1" name="quan1" placeholder="Qty" onblur="validate(5)" autocomplete="off" required> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit1" name="unit1" placeholder="Unit Price" onblur="validate(5)" autocomplete="off" required> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 2<span class="text-danger"> *</span></label> <input type="text" id="serv2" name="serv2" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan2" name="quan2" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit2" name="unit2" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 3<span class="text-danger"> *</span></label> <input type="text" id="serv3" name="serv3" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan3" name="quan3" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit3" name="unit3" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 4<span class="text-danger"> *</span></label> <input type="text" id="serv4" name="serv4" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan4" name="quan4" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit4" name="unit4" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+
+                    <button id="load-more">Load More</button>
+
+                    <div class="row justify-content-between text-left hide_me">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 5<span class="text-danger"> *</span></label> <input type="text" id="serv5" name="serv5" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan5" name="quan5" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit5" name="unit5" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left hide_me">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 6<span class="text-danger"> *</span></label> <input type="text" id="serv6" name="serv6" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan6" name="quan6" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit6" name="unit6" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left hide_me">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 7<span class="text-danger"> *</span></label> <input type="text" id="serv7" name="serv7" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan7" name="quan7" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit7" name="unit7" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left hide_me">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 8<span class="text-danger"> *</span></label> <input type="text" id="serv8" name="serv8" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan8" name="quan8" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit8" name="unit8" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left hide_me">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 9<span class="text-danger"> *</span></label> <input type="text" id="serv9" name="serv9" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan9" name="quan9" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit9" name="unit9" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left hide_me">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 10<span class="text-danger"> *</span></label> <input type="text" id="serv10" name="serv10" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan10" name="quan10" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit10" name="unit10" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+                    <div class="row justify-content-between text-left hide_me">
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Service 11<span class="text-danger"> *</span></label> <input type="text" id="serv11" name="serv11" placeholder="Service" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Quantity<span class="text-danger"> *</span></label> <input type="text" id="quan11" name="quan11" placeholder="Qty" onblur="validate(5)" autocomplete="off"> </div>
+                        <div class="form-group col-sm-4 flex-column d-flex"> <label class="form-control-label px-3">Unit Price<span class="text-danger"> *</span></label> <input type="text" id="unit11" name="unit11" placeholder="Unit Price" onblur="validate(5)" autocomplete="off"> </div>
+                    </div>
+
+                    <button id="show-less">Show Less</button>
+
+                    <div class="row justify-content-between text-left">
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Tax(%)<span class="text-danger"> *</span></label> <input type="number" id="ctax" name="ctax" placeholder="Service" onblur="validate(5)" autocomplete="off" required> </div>
+                    </div>
+
+                    <div class="row justify-content-end">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Submit</button> </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var loadMoreButton = document.getElementById("load-more");
+    var showLessButton = document.getElementById("show-less");
+    var hiddenRows = document.querySelectorAll(".hide_me");
+    showLessButton.style.display = "none"
+    loadMoreButton.addEventListener("click", function() {
+        for (var i = 0; i < hiddenRows.length; i++) {
+            hiddenRows[i].classList.remove("hide_me");
+            if (i === hiddenRows.length - 1) {
+                loadMoreButton.style.display = "none";
+                showLessButton.style.display = ""
+            }
+        }
+    });
+    showLessButton.addEventListener("click", function(){
+        for (var i = 0; i < hiddenRows.length; i++) {
+            hiddenRows[i].classList.add("hide_me");
+            if (i === hiddenRows.length - 1) {
+                loadMoreButton.style.display = "";
+                showLessButton.style.display = "none"
+            }
+        }
+    })
+</script>
+</body>
+</html>

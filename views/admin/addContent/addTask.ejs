@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/client.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="row">
+    <div class="col-md-12">
+        <form action="/adminDash/widgets" method="post">
+            <h1> ASSIGN TASK </h1>
+
+            <fieldset>
+
+                <label for="name">Task Name:</label>
+                <input type="text" id="name" name="assignTask" autocomplete="off" required>
+
+                <label for="text">Member(s) Involved: </label>
+                <input type="text" id="name" name="taskMem1" placeholder="Member Name" autocomplete="off" required>
+                <input type="text" id="name" name="taskMem2" placeholder="Member Name" autocomplete="off">
+                <input type="text" id="name" name="taskMem3" placeholder="Member Name" autocomplete="off">
+
+                <label for="text">Tasks: </label>
+                <input class=""type="text" id="name" name="assignedTask1" placeholder="Task Assigned" autocomplete="off" required>
+                <input class=""type="text" id="name" name="assignedTask2" placeholder="Task Assigned" autocomplete="off">
+                <input class=""type="text" id="name" name="assignedTask3" placeholder="Task Assigned" autocomplete="off">
+
+                <label for="text">Due Date: </label>
+                <input class=""type="date" id="name" name="dueDate" placeholder="Task Assigned" autocomplete="off">
+
+                <label for="text">Due Time: </label>
+                <input class=""type="time" id="name" name="dueTime" placeholder="Task Assigned" autocomplete="off">
+
+                <input type="hidden" name="formType" value="task">
+
+            </fieldset>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

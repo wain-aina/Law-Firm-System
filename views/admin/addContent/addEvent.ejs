@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/client.css">
+
+    <title>Document</title>
+</head>
+<body>
+
+<div class="formbold-main-wrapper">
+
+    <div class="formbold-form-wrapper">
+        <form action="/adminDash/widgets" method="POST">
+            <h1> Add Event to Calender</h1>
+            <div class="formbold-mb-5">
+                <label for="name" class="formbold-form-label"> What is the event? </label>
+                <input
+                        type="text" name="eventType" id="name" placeholder=" Event Name" class="formbold-form-input" autocomplete="off" required/>
+            </div>
+
+            <div class="flex flex-wrap formbold--mx-3">
+                <div class="w-full sm:w-half formbold-px-3">
+                    <div class="formbold-mb-5 w-full">
+                        <label for="date" class="formbold-form-label"> Set the date </label>
+                        <input type="date" name="eventDate" id="date" class="formbold-form-input" autocomplete="off" required/>
+                    </div>
+                </div>
+                <div class="w-full sm:w-half formbold-px-3">
+                    <div class="formbold-mb-5">
+                        <label for="time" class="formbold-form-label"> Set the time </label>
+                        <input type="time" name="eventTime" id="time" class="formbold-form-input" autocomplete="off" required/>
+                    </div>
+                </div>
+                <div class="w-full sm:w-half formbold-px-3">
+
+                        <input type="hidden" name="formType" value="event">
+
+                </div>
+            </div>
+            <div>
+                <button class="formbold-btn" type="submit">Finish</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

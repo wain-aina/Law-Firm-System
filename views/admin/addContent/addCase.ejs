@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/client.css">
+    <title>Document</title>
+    <%- include('../../partials/alerts')%>
+</head>
+<body>
+<style>
+    .hide_me, .hide_us  {
+        display: none;
+    }
+
+    #load-more, #more {
+        display: block;
+        width: 30%;
+        margin: 1rem auto 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        color: #fff;
+        background-color: #007bff;
+        cursor: pointer;
+    }
+
+    #show-less, #less {
+        width: 30%;
+        display: block;
+        margin: 1rem auto 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        color: #fff;
+        background-color: #007bff;
+        cursor: pointer;
+    }
+</style>
+<div class="col-md-6 offset-md-3 mt-5">
+
+    <form accept-charset="UTF-8" action="/adminDash/caseFiles" method="POST" enctype="">
+        <h1> Upload Case Data </h1>
+        <div class="form-group">
+            <label for="exampleInputName">Case Title</label>
+            <input type="text" name="caseTitle" class="form-control" id="exampleInputName" placeholder="Enter Case Title" required="required" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Case Type</label>
+            <select class="form-control" id="exampleFormControlSelect1" name="caseType" required="required">
+                <option>Family</option>
+                <option>Civil</option>
+                <option>Criminal</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1" required="required">Client Name</label>
+            <input type="text" name="orgName" class="form-control" id="exampleInputCompany1" aria-describedby="" placeholder="Enter Client Name" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1" required="required">Client Email</label>
+            <input type="email" name="clientEmail" class="form-control" id="exampleInputCompany1" aria-describedby="" placeholder="Enter Client Name" autocomplete="off">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputName">Associate(s) Involved</label>
+            <input class="" type="text" id="name" name="lawyer1" placeholder="Associate's Name" autocomplete="off" required>
+            <input class="" type="text" id="name" name="lawyer2" placeholder="Associate's Name" autocomplete="off">
+            <button type="button" id="more">Load More</button>
+            <input class="hide_us" type="text" id="name" name="lawyer3" placeholder="Associate's Name" autocomplete="off">
+            <input class="hide_us" type="text" id="name" name="lawyer4" placeholder="Associate's Name" autocomplete="off">
+            <input class="hide_us" type="text" id="name" name="lawyer5" placeholder="Associate's Name" autocomplete="off">
+            <input class="hide_us" type="text" id="name" name="lawyer6" placeholder="Associate's Name" autocomplete="off">
+            <input class="hide_us" type="text" id="name" name="lawyer7" placeholder="Associate's Name" autocomplete="off" >
+            <input class="hide_us" type="text" id="name" name="lawyer8" placeholder="Associate's Name" autocomplete="off">
+            <button type="button" id="less">Show Less</button>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputEmail1" required="required">Phone No. to reach</label>
+            <input type="text" name="lawyerNumber" class="form-control" id="exampleInputCompany1" aria-describedby="" placeholder="Enter Associate Number
+" autocomplete="off">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Tasks</label>
+            <input class=""type="text" id="name" name="job1" placeholder="Task 1" autocomplete="off" required>
+            <input class=""type="text" id="name" name="job2" placeholder="Task 2" autocomplete="off">
+            <input class=""type="text" id="name" name="job3" placeholder="Task 3" autocomplete="off">
+            <button type="button" id="load-more">Load More</button>
+            <input class="hide_me" type="text" id="name" name="job4" placeholder="Task 4" autocomplete="off">
+            <input class="hide_me" type="text" id="name" name="job5" placeholder="Task 5" autocomplete="off">
+            <input class="hide_me" type="text" id="name" name="job6" placeholder="Task 6" autocomplete="off">
+            <input class="hide_me" type="text" id="name" name="job7" placeholder="Task 7" autocomplete="off">
+            <input class="hide_me" type="text" id="name" name="job8" placeholder="Task 8" autocomplete="off">
+            <button type="button" id="show-less">Show Less</button>
+        </div>
+
+        <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    var loadMoreButton = document.getElementById("load-more");
+    var showLessButton = document.getElementById("show-less");
+    var hiddenRows = document.querySelectorAll(".hide_me");
+    showLessButton.style.display = "none"
+    loadMoreButton.addEventListener("click", function() {
+        for (var i = 0; i < hiddenRows.length; i++) {
+            hiddenRows[i].classList.remove("hide_me");
+            if (i === hiddenRows.length - 1) {
+                loadMoreButton.style.display = "none";
+                showLessButton.style.display = ""
+            }
+        }
+    });
+    showLessButton.addEventListener("click", function(){
+        for (var i = 0; i < hiddenRows.length; i++) {
+            hiddenRows[i].classList.add("hide_me");
+            if (i === hiddenRows.length - 1) {
+                loadMoreButton.style.display = "";
+                showLessButton.style.display = "none"
+            }
+        }
+    })
+
+    var more = document.getElementById("more");
+    var less = document.getElementById("less");
+    var hidden = document.querySelectorAll(".hide_us");
+    less.style.display = "none"
+    more.addEventListener("click", function() {
+        for (var i = 0; i < hidden.length; i++) {
+            hidden[i].classList.remove("hide_us");
+            if (i === hidden.length - 1) {
+                more.style.display = "none";
+                less.style.display = ""
+            }
+        }
+    });
+    less.addEventListener("click", function(){
+        for (var i = 0; i < hidden.length; i++) {
+            hidden[i].classList.add("hide_us");
+            if (i === hidden.length - 1) {
+                more.style.display = "";
+                less.style.display = "none"
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

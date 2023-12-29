@@ -1,0 +1,76 @@
+<!-- jQuery -->
+
+<script type="text/javascript">
+    function printpage() {
+        //Get the print button and put it into a variable
+        let printButton = document.getElementById("printpagebutton");
+        let exportButton = document.getElementById("exportpagebutton");
+        let btnClear = document.getElementById("btn_clear");
+        //Set the print button visibility to 'hidden'
+        printButton.style.visibility = 'hidden';
+        exportButton.style.visibility = 'hidden';
+        btnClear.style.visibility = 'hidden';
+        //Print the page content
+        window.print()
+        //Set the print button to 'visible' again
+        //[Delete this line if you want it to stay hidden after printing]
+        printButton.style.visibility = 'visible';
+        exportButton.style.visibility = 'visible';
+        btnClear.style.visibility = 'visible';
+    }
+</script>
+
+<script>
+    // Function to GeneratePdf
+    function GeneratePdf() {
+        let element = document.getElementById('printable');
+        let printButton = document.getElementById("printpagebutton");
+        let exportButton = document.getElementById("exportpagebutton");
+        let btnClear = document.getElementById("btn_clear");
+        printButton.style.visibility = 'hidden';
+        exportButton.style.visibility = 'hidden';
+        btnClear.style.visibility = 'hidden';
+        html2pdf(element).set({
+            image: { type: 'jpeg', quality: 1 }
+        });;
+        printButton.style.visibility = 'visible';
+        exportButton.style.visibility = 'visible';
+        btnClear.style.visibility = 'visible';
+    }
+</script>
+<script src=" https://printjs-4de6.kxcdn.com/print.min.js"></script>
+<script src="print.js"></script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<!-- wow animation -->
+<script src="/js/animate.js"></script>
+<!-- select country -->
+<script src="/js/bootstrap-select.js"></script>
+<!-- owl carousel -->
+<script src="/js/owl.carousel.js"></script>
+<!-- chart js -->
+<script src="/js/Chart.min.js"></script>
+<script src="/js/Chart.bundle.min.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/analyser.js"></script>
+<script src="/cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+<!-- nice scrollbar -->
+<script src="/js/perfect-scrollbar.min.js"></script>
+<script>
+    var ps = new PerfectScrollbar('#sidebar');
+</script>
+<!-- custom js -->
+<script src="/js/custom.js"></script>
+<script src="/js/chart_custom_style1.js"></script>
+<script src="/js/uploadBtn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+<!-- Add the evo-calendar.js for.. obviously, functionality! -->
+<script src="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/js/evo-calendar.min.js"></script>
+
+<!--this js script controls the alert flash-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous" defer="" data-deferred="1"></script>
+
+</body>
+</html>

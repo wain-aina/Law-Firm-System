@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/client.css">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    .hide_me, .hide_us  {
+        display: none;
+    }
+
+    #load-more, #more {
+        display: block;
+        width: 30%;
+        margin: 1rem auto 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        color: #fff;
+        background-color: #007bff;
+        cursor: pointer;
+    }
+
+    #show-less, #less {
+        width: 30%;
+        display: block;
+        margin: 1rem auto 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+        border: none;
+        color: #fff;
+        background-color: #007bff;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="/adminDash/projects" method="post">
+            <h1> New Project </h1>
+
+            <fieldset>
+
+                <label for="name">Case Title:</label>
+                <input type="text" id="name" name="ctitle" autocomplete="off" required>
+
+                <label for="text">Members: </label>
+                <input class="" type="text" id="name" name="mem1" placeholder="Member Name" autocomplete="off" required>
+                <input class="" type="text" id="name" name="mem2" placeholder="Member Name" autocomplete="off">
+                <input class="" type="text" id="name" name="mem3" placeholder="Member Name" autocomplete="off">
+                <input class="" type="text" id="name" name="mem4" placeholder="Member Name" autocomplete="off">
+                <button type="button" id="more">Load More</button>
+                <input class="hide_us" type="text" id="name" name="mem5" placeholder="Member Name" autocomplete="off">
+                <input class="hide_us" type="text" id="name" name="mem6" placeholder="Member Name" autocomplete="off">
+                <input class="hide_us" type="text" id="name" name="mem7" placeholder="Member Name" autocomplete="off" >
+                <input class="hide_us" type="text" id="name" name="mem8" placeholder="Member Name" autocomplete="off">
+                <button type="button" id="less">Show Less</button>
+
+                <label for="text">Tasks: </label>
+                <input class=""type="text" id="name" name="task1" placeholder="Task Assigned" autocomplete="off" required>
+                <input class=""type="text" id="name" name="task2" placeholder="Task Assigned" autocomplete="off">
+                <input class=""type="text" id="name" name="task3" placeholder="Task Assigned" autocomplete="off">
+                <button type="button" id="load-more">Load More</button>
+                <input class="hide_me" type="text" id="name" name="task4" placeholder="Task Assigned" autocomplete="off">
+                <input class="hide_me" type="text" id="name" name="task5" placeholder="Task Assigned" autocomplete="off">
+                <input class="hide_me" type="text" id="name" name="task6" placeholder="Task Assigned" autocomplete="off">
+                <input class="hide_me" type="text" id="name" name="task7" placeholder="Task Assigned" autocomplete="off">
+                <input class="hide_me" type="text" id="name" name="task8" placeholder="Task Assigned" autocomplete="off">
+
+                <button type="button" id="show-less">Show Less</button>
+
+            </fieldset>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+</div>
+<script>
+    var loadMoreButton = document.getElementById("load-more");
+    var showLessButton = document.getElementById("show-less");
+    var hiddenRows = document.querySelectorAll(".hide_me");
+    showLessButton.style.display = "none"
+    loadMoreButton.addEventListener("click", function() {
+        for (var i = 0; i < hiddenRows.length; i++) {
+            hiddenRows[i].classList.remove("hide_me");
+            if (i === hiddenRows.length - 1) {
+                loadMoreButton.style.display = "none";
+                showLessButton.style.display = ""
+            }
+        }
+    });
+    showLessButton.addEventListener("click", function(){
+        for (var i = 0; i < hiddenRows.length; i++) {
+            hiddenRows[i].classList.add("hide_me");
+            if (i === hiddenRows.length - 1) {
+                loadMoreButton.style.display = "";
+                showLessButton.style.display = "none"
+            }
+        }
+    })
+
+    var more = document.getElementById("more");
+    var less = document.getElementById("less");
+    var hidden = document.querySelectorAll(".hide_us");
+    less.style.display = "none"
+    more.addEventListener("click", function() {
+        for (var i = 0; i < hidden.length; i++) {
+            hidden[i].classList.remove("hide_us");
+            if (i === hidden.length - 1) {
+                more.style.display = "none";
+                less.style.display = ""
+            }
+        }
+    });
+    less.addEventListener("click", function(){
+        for (var i = 0; i < hidden.length; i++) {
+            hidden[i].classList.add("hide_us");
+            if (i === hidden.length - 1) {
+                more.style.display = "";
+                less.style.display = "none"
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/client.css">
+    <title>Update Profile</title>
+</head>
+<body>
+
+<div class="row">
+    <div class="col-md-12">
+        <form action="/dashboard/updateProfile/<%=user._id%>" method="post" enctype="multipart/form-data">
+            <h1> Update Your Profile </h1>
+
+            <fieldset>
+
+                <label for="name">Personal Info:</label>
+                <input type="text" id="name" name="yourName" autocomplete="off" placeholder="Your Name" value="<%=editData.email%>" required>
+                <input type="text" id="name" name="yourPhone" <%if(editData.phoneNumber){%>placeholder=" <%=editData.phoneNumber%>"<%} else {%>placeholder="Mobile Number"<%}%> value="<%=editData.phoneNumber%>" autocomplete="off">
+                <input type="text" id="name" name="yourJob" <%if(editData.occupation){%>placeholder=" <%=editData.occupation%>"<%} else {%>                <%if(editData.clientType === "Individual"){%>placeholder="What do you do?"<%} else {%>placeholder="What does your organization do?"<%}%>
+                        <%}%> value="<%=editData.occupation%>" autocomplete="off">
+
+                <label for="email">Credentials: </label>
+                <%if(editData.clientType === "Individual"){%>
+                <input type="text" id="name" name="yourID" <%if(editData.idNumber){%>placeholder=" <%=editData.idNumber%>"<%} else {%>placeholder="ID Number"<%}%> value="<%=editData.idNumber%>" autocomplete="off" required>
+                <input type="text" id="name" name="yourPassport" <%if(editData.passportNumber){%>placeholder=" <%=editData.passportNumber%>"<%} else {%>placeholder="Passport Number(If Applicable)"<%}%> value="<%=editData.passportNumber%>" autocomplete="off" >
+                <%} else {%>
+                <input type="text" id="name" name="kraPin" <%if(editData.kraPin){%>placeholder=" <%=editData.kraPin%>"<%} else {%>placeholder="KRA Pin"<%}%> value="<%=editData.kraPin%>" autocomplete="off" required>
+                <%}%>
+                <input type="text" id="name" name="postAddress" <%if(editData.postalAddress){%>placeholder=" <%=editData.postalAddress%>"<%} else {%>placeholder="Postal Address"<%}%> value="<%=editData.postalAddress%>" autocomplete="off" required>
+                <input type="text" id="name" name="physicalAddress" <%if(editData.physicalAddress){%>placeholder=" <%=editData.physicalAddress%>"<%} else {%>placeholder="Physical Address"<%}%> value="<%=editData.physicalAddress%>" autocomplete="off" required>
+                <%if(editData.clientType !== "Individual"){%>
+                <label for="">Business Certificate, CR12 & Tax Compliance Files Required: </label>
+                    <input type="file" name="orgFiles" className="formbold-form-input" multiple="true" required/>
+                <%}%>
+
+            </fieldset>
+
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+</div>

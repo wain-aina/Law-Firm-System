@@ -1,0 +1,320 @@
+<%- include('adminPartials/head')%>
+
+<body class="inner_page tables_page">
+<div class="full_container">
+    <div class="inner_container">
+        <!-- Sidebar  -->
+        <%- include('adminPartials/sidebar')%>
+        <!-- end sidebar -->
+        <!-- right content -->
+        <div id="content">
+            <!-- topbar -->
+            <%- include('adminPartials/adminBar')%>
+            <!-- end topbar -->
+            <!-- dashboard inner -->
+            <div class="midde_cont">
+                <div class="container-fluid">
+                    <div class="row column_title">
+                        <div class="col-md-12">
+                            <div class="page_title"><%- include('../partials/alerts')%></div>
+                        </div>
+                    </div>
+
+                    <!-- table section -->
+                    <div class="col-md-12">
+                        <div class="white_shd full margin_bottom_30">
+                            <div class="full graph_head">
+                                <div class="heading1 margin_0">
+                                    <h2> Case Files </h2>
+                                </div>
+                            </div>
+                            <div class="table_section padding_infor_info">
+                                <div class="table-responsive-sm">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Title</th>
+                                            <th>Case Type</th>
+                                            <th>Organization/Client Name</th>
+                                            <th>Client Email</th>
+                                            <th>Lawyer(s)</th>
+                                            <th>Tasks</th>
+                                            <th>Progress</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%cases.forEach(function(file, num){%>
+                                            <tr>
+                                                <td><%=num+1%></td>
+                                                <td><%=file.caseTitle%></td>
+                                                <td><%=file.caseType%></td>
+                                                <td><%=file.orgName%></td>
+                                                <td><%=file.clientEmail%></td>
+                                                <td>
+                                                    <ul class="list-inline">
+                                                            <%if(file.lawyer1){%>
+                                                            <p>
+                                                                1. <%=file.lawyer1%>
+                                                            </p>
+                                                            <%}%>
+                                                            <%if(file.lawyer2){%>
+                                                            <p>
+                                                                2. <%=file.lawyer2%>
+                                                            </p>
+                                                            <%}%>
+                                                            <%if(file.lawyer3){%>
+                                                            <p>
+                                                                3. <%=file.lawyer3%>
+                                                            </p>
+                                                            <%}%>
+                                                            <%if(file.lawyer4){%>
+                                                            <p>
+                                                                4. <%=file.lawyer4%>
+                                                            </p>
+                                                            <%}%>
+                                                            <%if(file.lawyer5){%>
+                                                            <p>
+                                                                5. <%=file.lawyer5%>
+                                                            </p>
+                                                            <%}%>
+                                                            <%if(file.lawyer6){%>
+                                                            <p>
+                                                                6. <%=file.lawyer6%>
+                                                            </p>
+                                                            <%}%>
+                                                            <%if(file.lawyer7){%>
+                                                            <p>
+                                                                7. <%=file.lawyer7%>
+                                                            </p>
+                                                            <%}%>
+                                                            <%if(file.lawyer8){%>
+                                                            <p>
+                                                                8. <%=file.lawyer8%>
+                                                            </p>
+                                                            <%}%>
+                                                    </ul>
+                                                </td>
+
+                                                <td class="filename">
+                                                    <ul class="list-inline">
+
+                                                            <form action="/adminDash/done/job1" method="post" class="task1form">
+                                                                <%if(file.job1){%>
+                                                                <p><input type="checkbox" class="todo-1" id="todo-1" name="job1" value="<%=file.job1%>"<% if (file.job1Completed) { %>checked<% } %>><label for="todo-4"><%=file.job1%></label></p>
+                                                                <%}%>
+                                                            </form>
+
+                                                            <form action="/adminDash/done/job2" method="post" class="task2form">
+                                                                <%if(file.job2){%>
+                                                                <p><input type="checkbox" class="todo-2" id="todo-2" name="job2" value="<%=file.job2%>"<% if (file.job2Completed) { %>checked<% } %>><label for="todo-4"><%=file.job2%></label></p>
+                                                                <%}%>
+                                                            </form>
+
+                                                            <form action="/adminDash/done/job3" method="post" class="task3form">
+                                                                <%if(file.job3){%>
+                                                                <p><input type="checkbox" class="todo-3" id="todo-3" name="job3" value="<%=file.job3%>"<% if (file.job3Completed) { %>checked<% } %>><label for="todo-4"><%=file.job3%></label></p>
+                                                                <%}%>
+                                                            </form>
+
+                                                            <form action="/adminDash/done/job4" method="post" class="task4form">
+                                                                <%if(file.job4){%>
+                                                                <p><input type="checkbox" class="todo-4" id="todo-4" name="job4" value="<%=file.job4%>"<% if (file.job4Completed) { %>checked<% } %>><label for="todo-4"><%=file.job4%></label></p>
+                                                                <%}%>
+                                                            </form>
+
+                                                            <form action="/adminDash/done/job5" method="post" class="task5form">
+                                                                <%if(file.job5){%>
+                                                                <p><input type="checkbox" class="todo-5" id="todo-5" name="job5" value="<%=file.job5%>"<% if (file.job5Completed) { %>checked<% } %>><label for="todo-4"><%=file.job5%></label></p>
+                                                                <%}%>
+                                                            </form>
+
+                                                            <form action="/adminDash/done/job6" method="post" class="task6form">
+                                                                <%if(file.job6){%>
+                                                                <p><input type="checkbox" class="todo-6" id="todo-6" name="job6" value="<%=file.job6%>"<% if (file.job6Completed) { %>checked<% } %>><label for="todo-4"><%=file.job6%></label></p>
+                                                                <%}%>
+                                                            </form>
+
+                                                            <form action="/adminDash/done/job7" method="post" class="task7form">
+                                                                <%if(file.job7){%>
+                                                                <p><input type="checkbox" class="todo-7" id="todo-7" name="job7" value="<%=file.job7%>"<% if (file.job7Completed) { %>checked<% } %>><label for="todo-4"><%=file.job7%></label></p>
+                                                                <%}%>
+                                                            </form>
+
+                                                            <form action="/adminDash/done/job8" method="post" class="task8form">
+                                                                <%if(file.job8){%>
+                                                                <p><input type="checkbox" class="todo-8" id="todo-8" name="job8" value="<%=file.job8%>"<% if (file.job8Completed) { %>checked<% } %>><label for="todo-4"><%=file.job8%></label></p>
+                                                                <%}%>
+                                                            </form>
+
+                                                    </ul>
+                                                </td>
+                                                <td class="project_progress">
+                                                    <div class="progress progress_sm">
+                                                        <%var taskCount = 0%>
+                                                        <%if(file.job1){%>
+                                                        <%taskCount++%>
+                                                        <%if(file.job2){%>
+                                                        <%taskCount++%>
+                                                        <%if(file.job3){%>
+                                                        <%taskCount++%>
+                                                        <%if(file.job4){%>
+                                                        <%taskCount++%>
+                                                        <%if(file.job5){%>
+                                                        <%taskCount++%>
+                                                        <%if(file.job6){%>
+                                                        <%taskCount++%>
+                                                        <%if(file.job7){%>
+                                                        <%taskCount++%>
+                                                        <%if(file.job8){%>
+                                                        <%taskCount++%>
+                                                        <%}%>
+                                                        <%}%>
+                                                        <%}%>
+                                                        <%}%>
+                                                        <%}%>
+                                                        <%}%>
+                                                        <%}%>
+                                                        <%}%>
+
+                                                        <%var completeCount = 0%>
+                                                        <%if(file.job1 && file.job1Completed){%>
+                                                        <%completeCount++%>
+                                                        <%}%>
+                                                        <%if(file.job2 && file.job2Completed){%>
+                                                        <%completeCount++%>
+                                                        <%}%>
+                                                        <%if(file.job3 && file.job3Completed){%>
+                                                        <%completeCount++%>
+                                                        <%}%>
+                                                        <%if(file.job4 && file.job4Completed){%>
+                                                        <%completeCount++%>
+                                                        <%}%>
+                                                        <%if(file.job5 && file.job5Completed){%>
+                                                        <%completeCount++%>
+                                                        <%}%>
+                                                        <%if(file.job6 && file.job6Completed){%>
+                                                        <%completeCount++%>
+                                                        <%}%>
+                                                        <%if(file.job7 && file.job7Completed){%>
+                                                        <%completeCount++%>
+                                                        <%}%>
+                                                        <%if(file.job8 && file.job8Completed){%>
+                                                        <%completeCount++%>
+                                                        <%}%>
+
+                                                        <%var progress = Math.round((completeCount/taskCount)*100)%>
+
+                                                        <div class="progress-bar progress-bar-animated progress-bar-striped" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: <%=progress%>%;"></div>
+                                                    </div>
+                                                    <small class="small_text"><%=progress%>% Complete</small>
+                                                </td>
+                                                <%if(around === 'admin'){%>
+                                                <td>
+                                                    <div class="deleteBtn">
+                                                        <form action="/delete/<%= file._id %>?_method=DELETE" method="post">
+                                                            <button class="btn_delete" type="submit"><i class="fa fa-trash"></i></button>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                                <%}%>
+                                            </tr>
+                                            <%})%>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="caseAdd" type="submit"><a class="addCase" href="/adminDash/addCase">Add Case Data</a></button>
+            </div>
+            <!-- footer -->
+
+        </div>
+        <!-- end dashboard inner -->
+    </div>
+</div>
+<!-- model popup -->
+<!-- The Modal -->
+<%- include('adminPartials/modalPop')%>
+<!-- end model popup -->
+</div>
+<script>
+
+    document.querySelectorAll('.todo-1').forEach((check, num)=>{
+        check.addEventListener("click", (e)=>{
+            if(check.checked){
+                e.preventDefault()
+                document.querySelectorAll('.task1form')[num].submit()
+            }
+        })
+    })
+
+    document.querySelectorAll('.todo-2').forEach((check, num)=>{
+        check.addEventListener("click", (e)=>{
+            if(check.checked){
+                e.preventDefault()
+                document.querySelectorAll('.task2form')[num].submit()
+            }
+        })
+    })
+
+    document.querySelectorAll('.todo-3').forEach((check, num)=>{
+        check.addEventListener("click", (e)=>{
+            if(check.checked){
+                e.preventDefault()
+                document.querySelectorAll('.task3form')[num].submit()
+            }
+        })
+    })
+
+    document.querySelectorAll('.todo-4').forEach((check, num)=>{
+        check.addEventListener("click", (e)=>{
+            if(check.checked){
+                e.preventDefault()
+                document.querySelectorAll('.task4form')[num].submit()
+            }
+        })
+    })
+
+    document.querySelectorAll('.todo-5').forEach((check, num)=>{
+        check.addEventListener("click", (e)=>{
+            if(check.checked){
+                e.preventDefault()
+                document.querySelectorAll('.task5form')[num].submit()
+            }
+        })
+    })
+
+    document.querySelectorAll('.todo-6').forEach((check, num)=>{
+        check.addEventListener("click", (e)=>{
+            if(check.checked){
+                e.preventDefault()
+                document.querySelectorAll('.task6form')[num].submit()
+            }
+        })
+    })
+
+    document.querySelectorAll('.todo-7').forEach((check, num)=>{
+        check.addEventListener("click", (e)=>{
+            if(check.checked){
+                e.preventDefault()
+                document.querySelectorAll('.task7form')[num].submit()
+            }
+        })
+    })
+
+    document.querySelectorAll('.todo-8').forEach((check, num)=>{
+        check.addEventListener("click", (e)=>{
+            if(check.checked){
+                e.preventDefault()
+                document.querySelectorAll('.task8form')[num].submit()
+            }
+        })
+    })
+
+</script>
+<%- include('adminPartials/foot')%>

@@ -1,0 +1,21 @@
+<form method="post" action="/login">
+    <div class="form-group">
+        <input type="email" name="username" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
+        <i class="input-icon uil uil-at"></i>
+    </div>
+    <div class="form-group mt-2">
+        <input type="password" name="password" class="form-style" placeholder="Your Password" id="logpass" autocomplete="off" required>
+        <i class="input-icon uil uil-lock-alt"></i>
+    </div>
+    <div class="form-group mt-2">
+        <p>or sign in with</p>
+    </div>
+    <div class="form-group mt-3" >
+        <a href="/auth/google"><button type="button" class=" btn google"><i class="fab fa-google fa-2x icon"></i> Google.</button></a>
+    </div>
+    <div class="form-group mt-2">
+        <input type="hidden" name="formType" value="signin">
+    </div>
+    <button type="submit" class="form-style btn mt-2">submit</button>
+    <p class="mb-0 mt-4 text-center"><a href="/forgot" class="link">Forgot your password?</a></p>
+</form>

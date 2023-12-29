@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Sigani Associates</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/evo-calendar@1.1.2/evo-calendar/css/evo-calendar.min.css"/>
+
+    <!-- site icon -->
+    <link rel="icon" href="images/fevicon.png" type="image/png" />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/css/bootstrap.css" />
+    <!-- site css -->
+    <link rel="stylesheet" href="/css/adminDash.css" />
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/css/responsive.css" />
+    <!-- color css -->
+    <link rel="stylesheet" href="/css/color_2.css" />
+    <!-- select bootstrap -->
+    <link rel="stylesheet" href="/css/bootstrap-select.css" />
+    <!-- scrollbar css -->
+    <link rel="stylesheet" href="/css/perfect-scrollbar.css" />
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="/css/calendar.css" />
+    <!-- Optional Themes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/evo-calendar/1.1.12/themes/orange-coral/evo-calendar.orange-coral.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/evo-calendar/1.1.12/themes/midnight-blue/evo-calendar.midnight-blue.min.css" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="/css/calendar.css" />
+    <link rel="stylesheet" href="/css/add.css">
+    <link rel="stylesheet" href="/css/deleteBtn.css">
+    <link rel="stylesheet" href="/css/email.css">
+    <link rel="stylesheet" href="/css/archives.css">
+    <link rel="stylesheet" href="/css/uploadBtns.css">
+    <link rel="stylesheet" href="/css/searchStyle.css">
+
+</head>
+<body class="dashboard dashboard_2">
+<div class="full_container">
+    <div class="inner_container">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar_blog_1">
+                <div class="sidebar-header">
+                    <div class="logo_section">
+                        <img class="logo_icon img-responsive" src="images/logo/logo_icon.png" alt="#" />
+                    </div>
+                </div>
+                <div class="sidebar_user_info">
+                    <div class="icon_setting"></div>
+                    <div class="user_profle_side">
+                        <div class="user_info">
+                            <h6><%=user.email%></h6>
+
+                            <p><span class="online_animation"></span> Online</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar_blog_2">
+                <h4>General</h4>
+                <ul class="list-unstyled components">
+                    <li class="active">
+                        <a href="/dashboard" aria-expanded="false"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/clientCases">
+                            <i class="fa fa-archive red_color"></i> <span>Your Cases</span></a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/addAppointment">
+                            <i class="fa fa-plus"></i> <span>New Appointment</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- end sidebar -->
+        <!-- right content -->
+        <div id="content">
+            <!-- topbar -->
+            <div class="topbar">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="full">
+                        <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
+                        <div class="logo_section">
+                        </div>
+                        <div class="right_topbar">
+                            <div class="icon_info">
+
+                                <ul class="user_profile_dd">
+                                    <li>
+                                        <a class="dropdown-toggle" data-toggle="dropdown"><img width="180" class="rounded-circle" src="../images/layout_img/faceless.jpg" alt="#" /><span class="name_user"><%=user.email%></span></a>
+                                        <div class="dropdown-menu">
+                                            <form action="/logout" method="post">
+                                                <button class="client_logout" type="submit"><a class="dropdown-item"><span>Log Out</span> <i class="fa fa-sign-out"></i></a></button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- end topbar -->
+            <!-- dashboard inner -->
+            <div class="midde_cont">
+                <div class="container-fluid">
+                    <div class="row column_title">
+                        <div class="col-md-12">
+                            <div class="page_title">
+                                <a href="/dashboard/updateProfile/<%=user._id%>"><h2><i class="fa fa-pencil-square"></i><span> - </span>Edit Profile</h2></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row -->
+                    <div class="row column1">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <div class="white_shd full margin_bottom_30">
+                                <div class="full graph_head">
+                                    <div class="heading1 margin_0">
+                                        <h2>Your Profile</h2>
+                                    </div>
+                                </div>
+                                <div class="full price_table padding_infor_info">
+                                    <div class="row">
+                                        <!-- user profile section -->
+                                        <!-- profile image -->
+                                        <div class="col-lg-12">
+                                            <div class="full dis_flex center_text">
+                                                <div class="profile_img"><img width="180" class="rounded-circle" src="../images/layout_img/faceless.jpg" alt="#" /></div>
+                                                <div class="profile_contant">
+                                                    <div class="contact_inner">
+                                                        <h3><%=user.email%></h3>
+                                                        <%if(user.clientType === "Organization"){%>
+                                                            <h4><strong>Field of Business: </strong><%=user.occupation%></h4>
+                                                        <%} else {%>
+                                                            <h4><strong>Occupation: </strong><%=user.occupation%></h4>
+                                                        <%}%>
+
+                                                        <ul class="list-unstyled">
+                                                            <h5><i class="fa fa-envelope-o"></i> : <%=user.username%></h5>
+                                                            <h5><i class="fa fa-phone"></i> : <%=user.phoneNumber%></h5>
+                                                            <%if(user.clientType !== "Individual"){%>
+                                                            <h5><i class="fa fa-credit-card"></i> KRA PIN: <%=user.kraPin%></h5>
+                                                            <%}%>
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <!-- profile contant section -->
+                                            <div class="full inner_elements margin_top_30">
+                                                <div class="tab_style2">
+                                                    <div class="tabbar">
+                                                        <nav>
+                                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                                <%if(user.clientType === "Individual"){%>
+                                                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#credentials" role="tab" aria-selected="true">Public Credentials</a>
+                                                                <%} else {%>
+                                                                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#credentials" role="tab" aria-selected="true">Uploaded Folders</a>
+                                                                    <%}%>
+                                                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#addresses" role="tab" aria-selected="false">Addresses</a>
+                                                            </div>
+                                                        </nav>
+                                                        <div class="tab-content" id="nav-tabContent">
+                                                            <div class="tab-pane fade show active" id="credentials" role="tabpanel" aria-labelledby="nav-home-tab">
+                                                                <%if(user.clientType === "Individual"){%>
+                                                                <div class="msg_list_main">
+                                                                    <ul class="msg_list">
+                                                                        <li>
+                                                                            <span>
+                                                               <span class="name_user"><strong>ID Number: </strong><%=user.idNumber%></span>
+
+                                                               </span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>
+                                                               <span class="name_user"><strong>Passport Number: </strong><%=user.passportNumber%></span>
+                                                               </span>
+                                                                        </li>
+
+                                                                    </ul>
+                                                                </div>
+                                                                <%} else {%>
+                                                                <div class="row">
+                                                                    <%for(const item of user.files){%>
+                                                                         <div class="col-lg-3 col-md-6 col-sm-12">
+                                                                             <div class="folder_icon">
+                                                                                 <a href="/download/orgFiles/<%=item.filename%>"><i class="fa fa-folder fa-5x red_color" aria-hidden="true"></i></a>
+                                                                             </div>
+                                                                            <div class="folder_name"><%=item.filename%></div>
+                                                                         </div>
+                                                                    <%}%>
+                                                                </div>
+                                                                <%}%>
+                                                            </div>
+                                                            <div class="tab-pane fade" id="addresses" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                                                <div class="msg_list_main">
+                                                                    <ul class="msg_list">
+                                                                        <li>
+                                                                            <span>
+                                                               <span class="name_user"><strong>Postal Address: </strong><%=user.postalAddress%></span>
+
+                                                               </span>
+                                                                        </li>
+                                                                        <li>
+                                                                            <span>
+                                                               <span class="name_user"><strong>Physical Address: </strong><%=user.physicalAddress%></span>
+                                                               </span>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+        </div>
+
+        <!-- footer -->
+
+        <!-- end dashboard inner -->
+    </div>
+</div>
+</div>
+<script>
+    function doDate() {
+        let currentDate = document.getElementById('currentDate');
+        let currentTime = document.getElementById('currentTime');
+        let currentDay = new Date().toLocaleDateString("en-US", { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' })
+        let current = new Date().toLocaleTimeString();
+        currentDate.innerHTML = `<b>${currentDay}</b> `
+        currentTime.innerHTML = `<b>${current}</b> `;
+    }
+
+    setInterval(doDate, 1000);
+</script>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/popper.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<!-- wow animation -->
+<script src="/js/animate.js"></script>
+<!-- select country -->
+<script src="/js/bootstrap-select.js"></script>
+<!-- owl carousel -->
+<script src="/js/owl.carousel.js"></script>
+<!-- chart js -->
+<script src="/js/Chart.min.js"></script>
+<script src="/js/Chart.bundle.min.js"></script>
+<script src="/js/utils.js"></script>
+<script src="/js/analyser.js"></script>
+<!-- nice scrollbar -->
+<script src="/js/perfect-scrollbar.min.js"></script>
+<script>
+    var ps = new PerfectScrollbar('#sidebar');
+</script>
+<!-- custom js -->
+<script src="/js/custom.js"></script>
+<script src="/js/chart_custom_style2.js"></script>
+</body>
+</html>
